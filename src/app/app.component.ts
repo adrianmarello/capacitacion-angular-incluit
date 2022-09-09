@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoginServiceService } from './shared/services/login-service.service';
 
 @Component({
-  selector: 'cap-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'cap-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'capacitacion';
+export class AppComponent implements OnInit{
+
+    constructor(private loginService: LoginServiceService) { }
+
+    title = 'capacitacion';
+
+    ngOnInit(): void {
+        this.loginService.eventAnnouncedLogin.subscribe(response => {
+            alert(response)
+        })
+    }
 }
