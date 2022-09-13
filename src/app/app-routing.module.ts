@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutContainerComponent } from './layout/components/layout-container/layout-container.component';
+import { LayoutContainerComponent } from './shared/layout/components/layout-container/layout-container.component';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'product/list',
         pathMatch: 'full',
     },
     {
@@ -14,7 +14,7 @@ const routes: Routes = [
         children: [
             {
                 path: 'home',
-                loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+                loadChildren: () => import('./modules/home/pages/home-page/home-page.module').then(m => m.HomePageModule)
             },
             {
                 path: 'client',
@@ -34,7 +34,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'home'
+        redirectTo: 'product/list'
     }
 ];
 
