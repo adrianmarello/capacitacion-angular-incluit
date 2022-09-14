@@ -1,1 +1,43 @@
-<p>client-list works!</p>
+<div class="row mb-3">
+    <div class="col-md-12">
+        <h2 class="d-inline me-2">Lista de Clientes</h2>
+        <button
+            type="button"
+            class="btn btn-light d-inline mb-2"
+            routerLink="/client/add"
+        >
+            Nuevo cliente
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre y Apellido</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clients; let i = index">
+                        <th scope="row">{{ i }}</th>
+                        <td>{{ client.firstName | titlecase }} {{ client.lastName | titlecase }}</td>
+                        <td>{{ client.documentNumber }}</td>
+                        <td>
+                            <button type="button" class="btn btn-light">
+                                Detalle
+                            </button>
+                            <button type="button" class="btn btn-danger ms-2">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
