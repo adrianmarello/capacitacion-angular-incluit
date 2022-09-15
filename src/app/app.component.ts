@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceService } from './shared/services/login-service.service';
+import { LoginServiceService } from './core/services/login-service.service';
 
 @Component({
     selector: 'cap-root',

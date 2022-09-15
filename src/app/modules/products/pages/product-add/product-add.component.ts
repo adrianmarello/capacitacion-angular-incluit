@@ -15,7 +15,7 @@ export class ProductAddComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder,  private localStorageService: LocalStorageService, private router: Router) {
         this.productForm = this.formBuilder.group({
-            name: ['', [Validators.required, Validators.maxLength(20)]],
+            name: ['', [Validators.required, Validators.maxLength(40)]],
             description: ['', [Validators.required]],
             price: [0, [Validators.required, Validators.min(1)]]
         })

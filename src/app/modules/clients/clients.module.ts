@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ClientsRoutingModule } from './clients-routing.module';
 
 @NgModule({
-    declarations: [
-    
-    ],
+    declarations: [],
     imports: [
         CommonModule,
         ClientsRoutingModule
