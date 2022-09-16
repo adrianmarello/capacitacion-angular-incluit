@@ -5,55 +5,6 @@
 </div>
 <div class="row">
     <div class="col-md-12 col-lg-6">
-        <form (submit)="onSubmit(productForm)" [formGroup]="productForm">
-            <div class="mb-3">
-                <label for="product-name" class="form-label">Nombre</label>
-                <input
-                    formControlName="name"
-                    type="text"
-                    class="form-control"
-                    id="product-name"
-                />
-                <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched">
-                    <div *ngIf="productForm.get('name')?.hasError('required')" class="invalid-feedback d-block">
-                        Ingrese un nombre.
-                    </div>
-                    <div *ngIf="productForm.get('name')?.hasError('maxlength')" class="invalid-feedback d-block">
-                        El nombre debe tener como máximo 20 caracteres.
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="product-description" class="form-label">Descripción</label>
-                <textarea 
-                    class="form-control" 
-                    id="product-description" 
-                    rows="3"
-                    formControlName="description"
-                    style="resize: none;"
-                >
-                </textarea>
-                <div *ngIf="productForm.controls['description'].invalid && productForm.controls['description'].touched">
-                    <div *ngIf="productForm.get('description')?.hasError('required')" class="invalid-feedback d-block">
-                        Ingrese una descripción.
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="product-price" class="form-label">Precio</label>
-                <input
-                    formControlName="price"
-                    type="number"
-                    class="form-control"
-                    id="product-price"
-                />
-                <div *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].touched">
-                    <div *ngIf="productForm.get('price')?.hasError('min')" class="invalid-feedback d-block">
-                        El precio debe ser al menos de 1.
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Guardar producto</button>
-        </form>
+        <cap-product-form></cap-product-form>
     </div>
 </div>

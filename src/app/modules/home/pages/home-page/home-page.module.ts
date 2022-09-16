@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
 import { HomePageComponentRoutingModule } from './home-page-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -10,8 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ],
     imports: [
         CommonModule,
-        HomePageComponentRoutingModule,
-        SharedModule
+        HomePageComponentRoutingModule
     ]
 })
 export class HomePageModule { }

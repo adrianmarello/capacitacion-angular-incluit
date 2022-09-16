@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { LoginServiceService } from './../../services/login-service.service';
+import { LoginServiceService } from 'src/app/core/services/login-service.service';
 
 
 @Component({

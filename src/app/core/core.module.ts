@@ -9,9 +9,11 @@ import { LayoutContainerModule } from './layout/components/layout-container/layo
         CommonModule,
         LayoutContainerModule
     ],
+    exports: [
+        
+    ],
     providers: [
         LocalStorageService,
-        LayoutContainerModule
     ]
 })
 export class CoreModule { }

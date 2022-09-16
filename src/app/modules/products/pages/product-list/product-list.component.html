@@ -2,34 +2,12 @@
     <div class="col-md-12">
         <h2 class="d-inline me-2">Lista de Productos</h2>
         <button type="button" class="btn btn-light d-inline mb-2" routerLink="/product/add">
-            Nuevo producto
+            Nuevo <i class="bi bi-bag-plus-fill"></i>
         </button>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let product of products; let i = index">
-                        <th scope="row">{{ i }}</th>
-                        <td>{{ product.name | titlecase }}</td>
-                        <td>${{ product.price }}</td>
-                        <td>
-                            <button type="button" class="btn btn-light">Detalle</button>
-                            <button type="button" class="btn btn-danger ms-2">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <cap-product-table></cap-product-table>
     </div>
 </div>

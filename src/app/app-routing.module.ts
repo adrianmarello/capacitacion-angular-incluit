@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth-guard.guard';
 import { LayoutContainerComponent } from './core/layout/components/layout-container/layout-container.component';
+
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'product/list',
+        redirectTo: 'home',
         pathMatch: 'full',
     },
     {
@@ -21,20 +23,22 @@ const routes: Routes = [
                 children: [{
                     path: '',
                     loadChildren: () => import('./modules/clients/clients.module').then(m => m.ClientsModule)
-                }]
+                }],
+                canActivate: [AuthGuard]
             },
             {
                 path: 'product',
                 children: [{
                     path: '',
                     loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule)
-                }]
+                }],
+                canActivate: [AuthGuard]
             }
         ]
     },
     {
         path: '**',
-        redirectTo: 'product/list'
+        redirectTo: 'home'
     }
 ];
 

@@ -28,12 +28,15 @@
                         <td>{{ client.firstName | titlecase }} {{ client.lastName | titlecase }}</td>
                         <td>{{ client.documentNumber }}</td>
                         <td>
-                            <button type="button" class="btn btn-light">
-                                Detalle
+                            <button type="button" class="btn btn-light" [routerLink]="['/client',client.documentNumber]" title="Detalle">
+                                <i class="bi bi-postcard"></i>
                             </button>
-                            <button type="button" class="btn btn-danger ms-2">
-                                Eliminar
+                            <button type="button" class="btn btn-light ms-1" [routerLink]="['/client',client.documentNumber]" title="Editar">
+                                <i class="bi bi-pencil-square"></i>
                             </button>
+                            <!-- <button type="button" class="btn btn-danger ms-1" (click)="removeClient(client.documentNumber)" title="Eliminar">
+                                <i class="bi bi-trash"></i>
+                            </button> -->
                         </td>
                     </tr>
                 </tbody>
