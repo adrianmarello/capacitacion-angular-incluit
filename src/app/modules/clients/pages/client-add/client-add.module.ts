@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientAddRoutingModule } from './client-add-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientAddComponent } from './client-add.component';
+import { ClientFormModule } from '../../components/client-form/client-form.module';
 
 @NgModule({
     declarations: [
-        ClientAddComponent
+        ClientAddComponent,
     ],
     imports: [
         CommonModule,
         ClientAddRoutingModule,
-        FormsModule,
-        ReactiveFormsModule
+        ClientFormModule
     ]
 })
 export class ClientAddModule { }

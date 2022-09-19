@@ -1,1 +1,30 @@
-<p>client-table works!</p>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre y Apellido</th>
+                <th scope="col">DNI</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of clients; let i = index">
+                <th scope="row">{{ i }}</th>
+                <td>{{ client.firstName | titlecase }} {{ client.lastName | titlecase }}</td>
+                <td>{{ client.documentNumber }}</td>
+                <td>
+                    <button type="button" class="btn btn-light" [routerLink]="['/client',client.documentNumber,'detail']" title="Detalle">
+                        <i class="bi bi-postcard"></i>
+                    </button>
+                    <button type="button" class="btn btn-light ms-1" [routerLink]="['/client',client.documentNumber,'edit']" title="Editar">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger ms-1" (click)="removeClient(client.documentNumber)" title="Eliminar">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

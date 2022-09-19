@@ -22,14 +22,14 @@ const routes: Routes = [
         }]
     },
     {
-        path: ':id/edit',
+        path: ':dni/edit',
         children: [{
             path: '',
             loadChildren: () => import('./pages/client-edit/client-edit.module').then(m => m.ClientEditModule)
         }]
     },
     {
-        path: ':id/detail',
+        path: ':dni/detail',
         children: [{
             path: '',
             loadChildren: () => import('./pages/client-detail/client-detail.module').then(m => m.ClientDetailModule)
