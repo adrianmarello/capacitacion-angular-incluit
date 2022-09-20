@@ -11,5 +11,11 @@
                 </a>
             </li>
         </ul>
+        <button type="button" class="btn btn-success ms-2" routerLink="/auth/login" *ngIf="!userLogged">
+            Iniciar Sesión
+        </button>
+        <button type="button" class="btn btn-danger ms-2" routerLink="/auth/logout" *ngIf="userLogged">
+            Cerrar Sesión
+        </button>
     </header>
 </div>

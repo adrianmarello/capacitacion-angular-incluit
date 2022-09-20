@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+    LogoutComponent
+  ],
     imports: [
         CommonModule,
         AuthRoutingModule

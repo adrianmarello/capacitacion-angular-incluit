@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceService } from './core/services/login-service.service';
+import { LoginService } from './core/services/login.service';
 
 @Component({
     selector: 'cap-root',
@@ -8,7 +8,7 @@ import { LoginServiceService } from './core/services/login-service.service';
 })
 export class AppComponent implements OnInit{
 
-    constructor(private loginService: LoginServiceService) { }
+    constructor(private loginService: LoginService) { }
 
     title = 'capacitacion';
 
