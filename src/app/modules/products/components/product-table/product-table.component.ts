@@ -1,6 +1,7 @@
+import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ProductEntity } from 'src/app/core/entities/product.entity';
-import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
     selector: 'cap-product-table',
@@ -10,23 +11,22 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 export class ProductTableComponent implements OnInit {
 
     public products: Array<ProductEntity> = [];
+    productsChangeSubscription: Subscription;
 
-    constructor(private localStorageService: LocalStorageService) {}
+    constructor(private productService: ProductService) {
+        this.productsChangeSubscription = this.productService.productChange.subscribe(() => this.products = this.productService.products)
+    }
 
     ngOnInit(): void {
-        this.getProducts();
+        this.productService.getProducts();
     }
 
-    getProducts(): void {
-        if(this.localStorageService.get('products')) {
-            this.products = this.localStorageService.get('products');
-        }  
+    ngOnDestroy(): void {
+        this.productsChangeSubscription.unsubscribe();
     }
 
-    removeProduct(productCode: number): void {
-        let products = this.localStorageService.get('products');
-        this.localStorageService.set('products', products.filter((p: ProductEntity) => p.code != productCode))
-        this.getProducts();
+    removeProduct(product: ProductEntity): void {
+        this.productService.removeProduct(product)
     }
 
 }

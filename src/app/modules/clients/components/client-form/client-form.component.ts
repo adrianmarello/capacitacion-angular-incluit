@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ClientEntity } from 'src/app/core/entities/client.entity';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { ClientService } from '../../services/client.service';
 
 @Component({
     selector: 'cap-client-form',
@@ -14,9 +16,14 @@ export class ClientFormComponent implements OnInit {
     public clientForm!: FormGroup;
     @Input() clientDNI!: number;
     client!: ClientEntity | undefined;
-    clients: Array<ClientEntity> = this.localStorageService.get('clients') || [];
+    clients: Array<ClientEntity> = [];
 
-    constructor(private formBuilder: FormBuilder, private localStorageService: LocalStorageService, private router: Router) {
+    constructor(
+        private formBuilder: FormBuilder,
+        private router: Router,
+        private clientService: ClientService
+    ) {
+        this.clients = this.clientService.clients
         this.clientForm = this.formBuilder.group({
             firstName: ['', [Validators.required, Validators.maxLength(20)]],
             lastName: ['', [Validators.required, Validators.maxLength(20)]],
@@ -47,16 +54,11 @@ export class ClientFormComponent implements OnInit {
     }
 
     addClient() {
-        this.clients.push(this.clientForm.value);
-        this.localStorageService.set('clients', this.clients);
-        //alert('Cliente agregado con éxito');
+        this.clientService.addClient(this.clientForm.value)
     }
 
     editClient() {
-       let clientIndex = this.clients.findIndex((c: ClientEntity) => c.documentNumber == this.clientDNI)
-       this.clients[clientIndex] = this.clientForm.value;
-       this.localStorageService.set('clients', this.clients);
-       //alert('Cliente modificado con éxito');
+       this.clientService.editClient(this.clientDNI, this.clientForm.value)
     }
 
 }

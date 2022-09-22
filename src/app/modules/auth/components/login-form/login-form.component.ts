@@ -51,8 +51,7 @@ export class LoginFormComponent implements OnInit {
                 this.router.navigate(['/product/list']);
             },
             error: (e) => {
-                this.toastr.error(e?.error?.error, 'Error');
-                
+                this.toastr.error(e?.error?.error, 'Error');  
             }
         })
     }
