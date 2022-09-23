@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { ClientEntity } from 'src/app/core/entities/client.entity';
-import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ClientService } from '../../services/client.service';
 
 @Component({

@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientAddComponent } from './pages/client-add/client-add.component';
+import { ClientDetailComponent } from './pages/client-detail/client-detail.component';
+import { ClientEditComponent } from './pages/client-edit/client-edit.component';
+import { ClientListComponent } from './pages/client-list/client-list.component';
 
 const routes: Routes = [
     {
@@ -9,31 +13,19 @@ const routes: Routes = [
     },
     {
         path: 'list',
-        children: [{
-            path: '',
-            loadChildren: () => import('./pages/client-list/client-list.module').then(m => m.ClientListModule)
-        }]
+        component: ClientListComponent
     },
     {
         path: 'add',
-        children: [{
-            path: '',
-            loadChildren: () => import('./pages/client-add/client-add.module').then(m => m.ClientAddModule)
-        }]
+        component: ClientAddComponent
     },
     {
         path: ':dni/edit',
-        children: [{
-            path: '',
-            loadChildren: () => import('./pages/client-edit/client-edit.module').then(m => m.ClientEditModule)
-        }]
+        component: ClientEditComponent
     },
     {
         path: ':dni/detail',
-        children: [{
-            path: '',
-            loadChildren: () => import('./pages/client-detail/client-detail.module').then(m => m.ClientDetailModule)
-        }]
+        component: ClientDetailComponent
     }
 ];
 

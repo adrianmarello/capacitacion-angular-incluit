@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { ProductEditComponent } from './pages/product-edit/product-edit.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
 
 const routes: Routes = [
     {
@@ -9,31 +13,19 @@ const routes: Routes = [
     },
     {
         path: 'list',
-        children: [{
-            path: '',
-            loadChildren: () => import('./pages/product-list/product-list.module').then(m => m.ProductListModule)
-        }]
+        component: ProductListComponent
     },
     {
         path: 'add',
-        children: [{
-            path: '',
-            loadChildren: () => import('./pages/product-add/product-add.module').then(m => m.ProductAddModule)
-        }]
+        component: ProductAddComponent
     },
     {
         path: ':code/edit',
-        children: [{
-            path: '',
-            loadChildren: () => import('./pages/product-edit/product-edit.module').then(m => m.ProductEditModule)
-        }]
+        component: ProductEditComponent
     },
     {
         path: ':code/detail',
-        children: [{
-            path: '',
-            loadChildren: () => import('./pages/product-detail/product-detail.module').then(m => m.ProductDetailModule)
-        }]
+        component: ProductDetailComponent
     }
 ];
 

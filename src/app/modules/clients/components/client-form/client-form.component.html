@@ -1,6 +1,6 @@
 <form (submit)="onSubmit(clientForm)" [formGroup]="clientForm">
     <div class="mb-3">
-        <label for="client-first-name" class="form-label">Nombre</label>
+        <label for="client-first-name" class="form-label">{{ "app.name" | translate}}</label>
         <input
             formControlName="firstName"
             type="text"
@@ -9,15 +9,15 @@
         />
         <div *ngIf="clientForm.controls['firstName'].invalid && clientForm.controls['firstName'].touched">
             <div *ngIf="clientForm.get('firstName')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese un nombre.
+                {{ "error.name_required" | translate }}
             </div>
             <div *ngIf="clientForm.get('firstName')?.hasError('maxlength')" class="invalid-feedback d-block">
-                El nombre debe tener como máximo 20 caracteres.
+                {{ "error.name_max_characters_20" | translate }}
             </div>
         </div>
     </div>
     <div class="mb-3">
-        <label for="client-last-name" class="form-label">Apellido</label>
+        <label for="client-last-name" class="form-label">{{ "app.surname" | translate}}</label>
         <input
             formControlName="lastName"
             type="text"
@@ -26,15 +26,15 @@
         />
         <div *ngIf="clientForm.controls['lastName'].invalid && clientForm.controls['lastName'].touched">
             <div *ngIf="clientForm.get('lastName')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese un apellido.
+                {{ "error.surname_required" | translate }}
             </div>
             <div *ngIf="clientForm.get('lastName')?.hasError('maxlength')" class="invalid-feedback d-block">
-                El apellido debe tener como máximo 20 caracteres.
+                {{ "error.surname_max_characters_20" | translate }}
             </div>
         </div>
     </div>
     <div class="mb-3">
-        <label for="client-document-number" class="form-label">Número de Documento</label>
+        <label for="client-document-number" class="form-label">{{ "app.document_number" | translate}}</label>
         <input
             formControlName="documentNumber"
             type="number"
@@ -43,15 +43,15 @@
         />
         <div *ngIf="clientForm.controls['documentNumber'].invalid && clientForm.controls['documentNumber'].touched">
             <div *ngIf="clientForm.get('documentNumber')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese un número de documento.
+                {{ "error.document_number_required" | translate }}
             </div>
             <div *ngIf="clientForm.get('documentNumber')?.hasError('max')" class="invalid-feedback d-block">
-                El número de documento es incorrecto.
+                {{ "error.document_number_incorrect" | translate }}
             </div>
         </div>
     </div>
     <div class="mb-3">
-        <label for="client-email" class="form-label">Correo Electrónico</label>
+        <label for="client-email" class="form-label">{{ "app.email" | translate}}</label>
         <input
             formControlName="email"
             type="text"
@@ -60,18 +60,18 @@
         />
         <div *ngIf="clientForm.controls['email'].invalid && clientForm.controls['email'].touched">
             <div *ngIf="clientForm.get('email')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese un correo electrónico.
+                {{ "error.email_required" | translate }}
             </div>
             <div *ngIf="clientForm.get('email')?.hasError('maxlength')" class="invalid-feedback d-block">
-                El correo electrónico debe tener como máximo 40 caracteres.
+                {{ "error.email_max_characters_40" | translate }}
             </div>
             <div *ngIf="clientForm.get('email')?.hasError('email')" class="invalid-feedback d-block">
-                Debe ingresar un correo electrónico válido.
+                {{ "error.email_invalid_format" | translate }}
             </div>
         </div>
     </div>
     <div class="mb-3">
-        <label for="client-birthday" class="form-label">Fecha de Nacimiento</label>
+        <label for="client-birthday" class="form-label">{{ "app.birthday" | translate}}</label>
         <input
             formControlName="birthday"
             type="date"
@@ -80,10 +80,10 @@
         />
         <div *ngIf="clientForm.controls['birthday'].invalid && clientForm.controls['birthday'].touched">
             <div *ngIf="clientForm.get('birthday')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese la fecha de nacimiento.
+                {{ "error.birthday_required" | translate }}
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <button type="button" class="btn btn-light ms-2" routerLink="/client/list">Cancelar</button>
+    <button type="submit" class="btn btn-primary">{{ "app.save" | translate}}</button>
+    <button type="button" class="btn btn-light ms-2" routerLink="/client/list">{{ "app.cancel" | translate}}</button>
 </form>

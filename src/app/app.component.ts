@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './core/services/login.service';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
     selector: 'cap-root',
@@ -8,13 +8,10 @@ import { LoginService } from './core/services/login.service';
 })
 export class AppComponent implements OnInit{
 
-    constructor(private loginService: LoginService) { }
-
-    title = 'capacitacion';
-
-    ngOnInit(): void {
-        this.loginService.eventAnnouncedLogin.subscribe(response => {
-            alert(response)
-        })
+    constructor(private translate: TranslateService) {
+        this.translate.setDefaultLang('es');
+        this.translate.use('es');
     }
+
+    ngOnInit(): void {}
 }

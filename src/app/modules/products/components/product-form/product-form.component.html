@@ -1,6 +1,6 @@
 <form (submit)="onSubmit(productForm)" [formGroup]="productForm">
     <div class="mb-3">
-        <label for="product-code" class="form-label">Código de producto</label>
+        <label for="product-code" class="form-label">{{ "app.code" | translate}}</label>
         <input
             formControlName="code"
             type="number"
@@ -9,15 +9,15 @@
         />
         <div *ngIf="productForm.controls['code'].invalid && productForm.controls['code'].touched">
             <div *ngIf="productForm.get('code')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese un código de producto.
+                {{ "error.product_code_required" | translate }}
             </div>
             <div *ngIf="productForm.get('code')?.hasError('min')" class="invalid-feedback d-block">
-                El código no puede ser igual a 0.
+                {{ "error.product_code_greater_than_zero" | translate }}
             </div>
         </div>
     </div>
     <div class="mb-3">
-        <label for="product-name" class="form-label">Nombre</label>
+        <label for="product-name" class="form-label">{{ "app.name" | translate}}</label>
         <input
             formControlName="name"
             type="text"
@@ -26,15 +26,15 @@
         />
         <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched">
             <div *ngIf="productForm.get('name')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese un nombre.
+                {{ "error.name_required" | translate }}
             </div>
             <div *ngIf="productForm.get('name')?.hasError('maxlength')" class="invalid-feedback d-block">
-                El nombre debe tener como máximo 20 caracteres.
+                {{ "error.name_max_characters_20" | translate }}
             </div>
         </div>
     </div>
     <div class="mb-3">
-        <label for="product-description" class="form-label">Descripción</label>
+        <label for="product-description" class="form-label">{{ "app.description" | translate}}</label>
         <textarea 
             class="form-control" 
             id="product-description" 
@@ -45,12 +45,12 @@
         </textarea>
         <div *ngIf="productForm.controls['description'].invalid && productForm.controls['description'].touched">
             <div *ngIf="productForm.get('description')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese una descripción.
+                {{ "error.description_required" | translate }}
             </div>
         </div>
     </div>
     <div class="mb-3">
-        <label for="product-price" class="form-label">Precio</label>
+        <label for="product-price" class="form-label">{{ "app.price" | translate}}</label>
         <input
             formControlName="price"
             type="number"
@@ -59,13 +59,13 @@
         />
         <div *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].touched">
             <div *ngIf="productForm.get('price')?.hasError('required')" class="invalid-feedback d-block">
-                Ingrese un precio.
+                {{ "error.price_required" | translate }}
             </div>
             <div *ngIf="productForm.get('price')?.hasError('min')" class="invalid-feedback d-block">
-                El precio debe ser al menos de 1.
+                {{ "error.price_cantby_0" | translate }}
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <button type="button" class="btn btn-light ms-2" routerLink="/product/list">Cancelar</button>
+    <button type="submit" class="btn btn-primary">{{ "app.save" | translate}}</button>
+    <button type="button" class="btn btn-light ms-2" routerLink="/product/list">{{ "app.cancel" | translate}}</button>
 </form>

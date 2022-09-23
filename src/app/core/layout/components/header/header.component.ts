@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd, NavigationError } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
@@ -12,11 +13,11 @@ export class HeaderComponent implements OnInit {
     userLogged: boolean = this.localStorageService.get('access_token') ? true : false;
     currentRoute: string = '';
     menuItems: Array<any> = [
-        {name: 'Productos', class: 'nav-link', route: '/product/list'},
-        {name: 'Clientes', class: 'nav-link', route: '/client/list'}
+        {name: 'app.products', class: 'nav-link', route: '/product/list'},
+        {name: 'app.clients', class: 'nav-link', route: '/client/list'}
     ]
 
-    constructor(private route: Router, private localStorageService: LocalStorageService) { 
+    constructor(private route: Router, private localStorageService: LocalStorageService, private translate: TranslateService) { 
         this.route.events.subscribe((event: Event) => {
     
             if (event instanceof NavigationEnd) {
@@ -29,8 +30,10 @@ export class HeaderComponent implements OnInit {
         });
     }
     
-    ngOnInit(): void {
-        
+    ngOnInit(): void {}
+
+    useLanguage(language: string): void {
+        this.translate.use(language);
     }
 
 }

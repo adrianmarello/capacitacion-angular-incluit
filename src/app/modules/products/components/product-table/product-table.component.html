@@ -2,9 +2,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Código</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Precio</th>
+                <th scope="col">{{ "app.code" | translate }}</th>
+                <th scope="col">{{ "app.name" | translate }}</th>
+                <th scope="col">{{ "app.price" | translate }}</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -14,13 +14,13 @@
                 <td>{{ product.name | titlecase }}</td>
                 <td>${{ product.price }}</td>
                 <td>
-                    <button type="button" class="btn btn-light" [routerLink]="['/product',product.code,'detail']" title="Detalle">
+                    <button type="button" class="btn btn-light" [routerLink]="['/product',product.code,'detail']" [title]="'app.detail' | translate ">
                         <i class="bi bi-postcard"></i>
                     </button>
-                    <button type="button" class="btn btn-light ms-1" [routerLink]="['/product',product.code,'edit']" title="Editar">
+                    <button type="button" class="btn btn-light ms-1" [routerLink]="['/product',product.code,'edit']" [title]="'app.edit' | translate ">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                    <button type="button" class="btn btn-danger ms-1" (click)="removeProduct(product)" title="Eliminar">
+                    <button type="button" class="btn btn-danger ms-1" (click)="removeProduct(product)" [title]="'app.delete' | translate ">
                         <i class="bi bi-trash"></i>
                     </button>
                 </td>

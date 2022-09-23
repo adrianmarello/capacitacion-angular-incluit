@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductFormComponent } from './product-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -12,7 +13,8 @@ import { RouterModule } from '@angular/router';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule,
+        TranslateModule
     ],
     exports: [
         ProductFormComponent

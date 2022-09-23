@@ -1,21 +1,27 @@
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a routerLink="home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <span class="fs-4">Capacitación Angular</span>
+            <span class="fs-4">{{"app.title" | translate}}</span>
         </a>
 
         <ul class="nav nav-pills">
             <li class="nav-item" *ngFor="let item of menuItems">
                 <a [routerLink]="item.route" [class]="item.class" [ngClass]="{'active' : currentRoute==item.route}">
-                    {{ item.name }}
+                    {{ item.name | translate }}
                 </a>
             </li>
         </ul>
         <button type="button" class="btn btn-success ms-2" routerLink="/auth/login" *ngIf="!userLogged">
-            Iniciar Sesión
+            {{ "app.login" | translate }}
         </button>
         <button type="button" class="btn btn-danger ms-2" routerLink="/auth/logout" *ngIf="userLogged">
-            Cerrar Sesión
+            {{ "app.logout" | translate }}
+        </button>
+        <button (click)="useLanguage('en')" class="ms-2 btn btn-light">
+            <img class="flag-img" src="/assets/images/en.png" />
+        </button>
+        <button (click)="useLanguage('es')" class="btn btn-light">
+            <img class="flag-img" src="/assets/images/es.png" />
         </button>
     </header>
 </div>

@@ -2,25 +2,25 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre y Apellido</th>
-                <th scope="col">DNI</th>
+                <th scope="col">{{ "app.name" | translate}}</th>
+                <th scope="col">{{ "app.surname" | translate}}</th>
+                <th scope="col">{{ "app.document_number" | translate}}</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let client of clients; let i = index">
-                <th scope="row">{{ i }}</th>
-                <td>{{ client.firstName | titlecase }} {{ client.lastName | titlecase }}</td>
+            <tr *ngFor="let client of clients">
+                <td>{{ client.firstName | titlecase }}</td>
+                <td>{{ client.lastName | titlecase }}</td>
                 <td>{{ client.documentNumber }}</td>
                 <td>
-                    <button type="button" class="btn btn-light" [routerLink]="['/client',client.documentNumber,'detail']" title="Detalle">
+                    <button type="button" class="btn btn-light" [routerLink]="['/client',client.documentNumber,'detail']" [title]="'app.detail' | translate">
                         <i class="bi bi-postcard"></i>
                     </button>
-                    <button type="button" class="btn btn-light ms-1" [routerLink]="['/client',client.documentNumber,'edit']" title="Editar">
+                    <button type="button" class="btn btn-light ms-1" [routerLink]="['/client',client.documentNumber,'edit']" [title]="'app.edit' | translate">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                    <button type="button" class="btn btn-danger ms-1" (click)="removeClient(client)" title="Eliminar">
+                    <button type="button" class="btn btn-danger ms-1" (click)="removeClient(client)" [title]="'app.delete' | translate">
                         <i class="bi bi-trash"></i>
                     </button>
                 </td>
