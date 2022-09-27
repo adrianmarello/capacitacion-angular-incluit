@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-md-12 text-center">
-        <p class="fs-2 mt-5 mb-5">Este es el home y es de acceso público</p>
+        <div class="fs-2 mt-5 mb-5" *capUnless="userIsLogged">{{'este es el home y es de acceso público' | capitalize}}</div>
+        <p class="fs-2 mt-5 mb-5" *ngIf="userIsLogged">{{'el usuario esta logeado' | capitalize}}</p>
     </div>
 </div>

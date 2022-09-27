@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
     selector: 'cap-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-    constructor() { }
+    public userIsLogged = this.localStorageService.get('access_token');
 
-    ngOnInit(): void {
-    }
+    constructor(private localStorageService: LocalStorageService) { }
+
+    ngOnInit(): void {}
 
 }

@@ -10,6 +10,7 @@ import { ClientDetailComponent } from './pages/client-detail/client-detail.compo
 import { ClientFormModule } from './components/client-form/client-form.module';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { HighlightDirective } from 'src/app/core/directives/highlight.directive';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { TranslateModule } from '@ngx-translate/core';
         ClientAddComponent,
         ClientEditComponent,
         ClientDetailComponent,
-        ClientTableComponent
+        ClientTableComponent,
+        HighlightDirective
     ],
     imports: [
         CommonModule,
